@@ -1,0 +1,20 @@
+pour lancer le serveur laravel : php artisan serve --host=0.0.0.0 --port=8000
+
+Premièrement création de table
+
+public function up()
+    {
+        Schema::create('test', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('fname',255);
+            $table->string('lname',255);
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+pour faire migrer une table en particulier il faut faire cette commande:
+
+php artisan migrate --path=/database/migrations/test/
+
+
