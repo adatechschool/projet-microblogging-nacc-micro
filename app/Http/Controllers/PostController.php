@@ -14,11 +14,13 @@ class PostController extends Controller
         $posts=Post::all();
         return view('posts.index', compact('posts'));
     }
-    // public function show(Request $request): View
-    // {
-    //     $post=Post;
-    //     return view('posts.show', compact('post'));
-    // }
+
+    public function show(string $id): View
+    {
+        return view('posts.show', [
+            'post' => post::findOrFail($id)
+        ]);
+}
 
     public function edit(Request $request): View
     {

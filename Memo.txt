@@ -17,4 +17,6 @@ pour faire migrer une table en particulier il faut faire cette commande:
 
 php artisan migrate --path=/database/migrations/test/
 
+ <!-- <img src="/img/img_1811_720.jpg" alt="" title=""/> -->
+
 

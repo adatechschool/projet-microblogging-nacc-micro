@@ -29,4 +29,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/posts', [PostController::class, 'index']);
 
+//la route pour accéder à la méthode show dans votre PostController.
+Route::get('/posts/{id}', [PostController::class, 'show']);
+
+
 require __DIR__.'/auth.php';
