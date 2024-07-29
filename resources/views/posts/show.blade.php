@@ -12,7 +12,7 @@ resources/views/posts/show.blade.php
                 <p>{{ $post->body }}</p>
                
                 @if($post->image_path)
-                 <!-- <img src="/img/img_1811_720.jpg" alt="" title=""/> -->
+                  <!-- <img src="/img/img_1811_720.jpg" alt="" title=""/>  -->
                 <!-- faire un migration/reseat sur BDD POST pour modifier image-path -->
                     <img src="{{ url($post->image_path) }}" alt="post image" title="">
                 @endif
