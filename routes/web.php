@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,9 @@ Route::get('/posts', [PostController::class, 'index']);
 //la route pour accéder à la méthode show dans votre PostController.
 Route::get('/posts/{id}', [PostController::class, 'show']);
 
+//la route pour accéder à la méthode index dans votre UserController.
+Route::get('/users', [UserController::class, 'index']);
+//la route pour accéder à la méthode show dans votre UserController.
+Route::get('/user/{id}', [UserController::class, 'show']);
 
 require __DIR__.'/auth.php';
