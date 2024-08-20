@@ -16,7 +16,7 @@ class PostController extends Controller
         $showModal = $request->query('show_modal', false); // Default to false
         return view('posts.index', compact('posts','showModal'));
     }
-
+    
     public function show(string $id): View
     {
         return view('posts.show', [
