@@ -33,4 +33,10 @@ class ExampleTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirectToRoute('dashboard');
     }
+
+    public function test_wrong_mail(): void {
+        $response = $this->withHeaders([
+        'X-Header' => 'Value',
+        ])->post('/register', ['name'])
+    }
 }
