@@ -13,7 +13,8 @@ class PostController extends Controller
     public function index(Request $request): View{
 
         $posts=Post::all();
-        return view('posts.index', compact('posts'));
+        $showModal = $request->query('show_modal', false); // Default to false
+        return view('posts.index', compact('posts','showModal'));
     }
 
     public function show(string $id): View
@@ -48,4 +49,7 @@ class PostController extends Controller
         
     }
 
+    public function create() {
+    return view('posts.create');
+    }
 };
