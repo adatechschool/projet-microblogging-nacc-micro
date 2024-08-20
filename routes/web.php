@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::patch('/navigation', [UserController::class, 'store'])->name('profile.store-bio'); 
 });
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); // Added route name here;
 //la route pour accéder à la méthode show dans votre PostController.
