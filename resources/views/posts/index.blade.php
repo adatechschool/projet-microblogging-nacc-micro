@@ -56,25 +56,25 @@
                                                 Add New Post
                                             </h3>
                                             <div class="mt-2">
-                                            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="mb-4">
-        <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-        <input type="text" name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-    </div>
+                                                <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="mb-4">
+                                                        <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                                                        <input type="text" name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                                                    </div>
 
-    <div class="mb-4">
-        <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
-        <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-        <p class="text-sm text-gray-500 mt-2">Upload an image from your computer. The image will be saved in the `/app/public/img/` directory.</p>
-    </div>
+                                                    <div class="mb-4">
+                                                        <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                                                        <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                                        <p class="text-sm text-gray-500 mt-2">Upload an image from your computer. The image will be saved in the `/app/public/img/` directory.</p>
+                                                    </div>
 
-    <div class="flex items-center justify-end mt-4">
-        <x-primary-button>
-            {{ __('Create Post') }}
-        </x-primary-button>
-    </div>
-</form>
+                                                    <div class="flex items-center justify-end mt-4">
+                                                        <x-primary-button>
+                                                            {{ __('Create Post') }}
+                                                        </x-primary-button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
