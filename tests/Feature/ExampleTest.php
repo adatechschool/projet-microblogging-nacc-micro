@@ -23,6 +23,7 @@ class ExampleTest extends TestCase
         ])->post('/login', ['email' => 'kill@gmail.com', 'password'=> 'toto']);
         
       $response->assertStatus(302);
+      $response->assertRedirect('/login');
     }
 
     public function test_right_password(): void{
@@ -31,12 +32,12 @@ class ExampleTest extends TestCase
         ])->post('/login', ['email' => 'kill@gmail.com', 'password'=> 'azertyui']);
  
         $response->assertStatus(302);
-        $response->assertRedirectToRoute('dashboard');
+        $response->assertRedirect('/posts');
     }
 
-    public function test_wrong_mail(): void {
-        $response = $this->withHeaders([
-        'X-Header' => 'Value',
-        ])->post('/register', ['name'])
-    }
+    // public function test_wrong_mail(): void {
+    //     $response = $this->withHeaders([
+    //     'X-Header' => 'Value',
+    //     ])->post('/register', ['name']);
+    // }
 }
