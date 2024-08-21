@@ -9,35 +9,31 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <!-- Posts Table -->
-                    <table class="min-w-full bg-white">
-                        <thead>
-                            <tr>
-                                <th class="w-1/12 px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">#</th>
-                                <th class="w-9/12 px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">Content</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $index = 1; @endphp
-                            @foreach($posts as $post)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
-                                    {{ $index }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-300">
-                                    <a href="{{ url('posts/' . $post->id) }}" class="text-blue-500 hover:underline">
-                                        {{ $post->content }}
+                    <!-- Posts Gallery -->
+                    <div class="flex flex-wrap justify-center gap-6">
+                        @foreach($posts as $post)
+                            <div class="w-full sm:w-1/2 lg:w-1/4 p-2">
+                                <div class="relative group bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+                                    <a href="{{ url('posts/' . $post->id) }}">
+                                        <img src="{{ url($post->image_path) }}" alt="post image"
+                                            class="w-full h-48 object-cover filter blur-sm transition duration-300 ease-in-out group-hover:blur-none group-hover:scale-105 transform">
+                                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                                            <h2 class="text-white text-lg font-bold">{{ $post->content }}</h2>
+                                        </div>
                                     </a>
-                                </td>
-                            </tr>
-                            @php $index++; @endphp
-                            @endforeach
-                        </tbody>
-                    </table>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <!-- Pagination Links -->
+                    <div class="mt-8">
+                        {{ $posts->links() }}
+                    </div>
 
                     <!-- Button to Trigger the Modal -->
-                    <div class="mt-4">
-                        <a href="{{ url('/posts?show_modal=true') }}" class="inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 disabled:opacity-25 transition">
+                    <div class="mt-8 flex justify-center">
+                        <a href="{{ url('/posts?show_modal=true') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-800 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">
                             Add New Post
                         </a>
                     </div>
@@ -60,24 +56,25 @@
                                                 Add New Post
                                             </h3>
                                             <div class="mt-2">
-                                                <form action="{{ route('posts.store') }}" method="POST">
-                                                    @csrf
-                                                    <div class="mb-4">
-                                                        <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-                                                        <input type="text" name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                                    </div>
+                                            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-4">
+        <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+        <input type="text" name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+    </div>
 
-                                                    <div class="mb-4">
-                                                        <label for="image_path" class="block text-sm font-medium text-gray-700">Image Path</label>
-                                                        <input type="text" name="image_path" id="image_path" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
-                                                    </div>
+    <div class="mb-4">
+        <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+        <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+        <p class="text-sm text-gray-500 mt-2">Upload an image from your computer. The image will be saved in the `/app/public/img/` directory.</p>
+    </div>
 
-                                                    <div class="flex items-center justify-end mt-4">
-                                                        <x-primary-button>
-                                                            {{ __('Create Post') }}
-                                                        </x-primary-button>
-                                                    </div>
-                                                </form>
+    <div class="flex items-center justify-end mt-4">
+        <x-primary-button>
+            {{ __('Create Post') }}
+        </x-primary-button>
+    </div>
+</form>
                                             </div>
                                         </div>
                                     </div>
