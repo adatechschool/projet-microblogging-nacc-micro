@@ -5,6 +5,7 @@
         </h1>
     </x-slot>
 
+
     <main class="py-8 sm:py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg rounded-lg">

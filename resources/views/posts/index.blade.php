@@ -4,7 +4,6 @@
             {{ __('Posts') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -25,19 +24,16 @@
                             </div>
                         @endforeach
                     </div>
-
                     <!-- Pagination Links -->
                     <div class="mt-8">
                         {{ $posts->links() }}
                     </div>
-
                     <!-- Button to Trigger the Modal -->
                     <div class="mt-8 flex justify-center">
                         <a href="{{ url('/posts?show_modal=true') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-800 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">
                             Add New Post
                         </a>
                     </div>
-
                     <!-- The Modal (conditionally shown based on $showModal) -->
                     @if($showModal)
                     <div class="fixed z-10 inset-0 overflow-y-auto">
@@ -45,9 +41,7 @@
                             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
                             </div>
-
                             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
                             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                     <div class="sm:flex sm:items-start">
@@ -62,13 +56,11 @@
                                                         <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
                                                         <input type="text" name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
                                                     </div>
-
                                                     <div class="mb-4">
                                                         <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
                                                         <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                                                         <p class="text-sm text-gray-500 mt-2">Upload an image from your computer. The image will be saved in the `/app/public/img/` directory.</p>
                                                     </div>
-
                                                     <div class="flex items-center justify-end mt-4">
                                                         <x-primary-button>
                                                             {{ __('Create Post') }}
@@ -93,3 +85,10 @@
         </div>
     </div>
 </x-app-layout>
+
+
+
+
+
+
+
